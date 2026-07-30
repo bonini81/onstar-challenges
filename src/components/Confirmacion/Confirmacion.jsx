@@ -38,7 +38,10 @@ function Confirmacion() {
   return (
     <section className={styles.screen}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Confirma el nombre de tu equipo:</h1>
+        <h1 className={styles.title}>Confirma el nombre <br /> de tu equipo:</h1>
+
+          <hr class={styles.divider} />
+
         <p className={styles.teamName}>{teamName}</p>
 
         {error && <p className={styles.error}>{error}</p>}
