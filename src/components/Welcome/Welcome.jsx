@@ -42,12 +42,11 @@ function Welcome() {
 
   return (
     <section className={styles.screen}>
-      <div className={styles.ring}>
-        <div className={styles.logo}>
+      <article className={styles.logo}>
           <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
-        </div>
+        </article>
       
-
+      <div className={styles.ring}>
         <h1 className={styles.headline}>
           Conoce al cliente
           <strong>
