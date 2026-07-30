@@ -44,12 +44,9 @@ function Welcome() {
     <section className={styles.screen}>
       <div className={styles.ring}>
         <div className={styles.logo}>
-          <span className={styles.logoMark}>On</span>
-          <span className={styles.logoText}>
-            Star<br />Negocios
-          </span>
+          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
         </div>
-        <p className={styles.challenge}>Challenge</p>
+      
 
         <h1 className={styles.headline}>
           Conoce al cliente
