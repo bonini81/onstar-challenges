@@ -4,7 +4,11 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-lg);
-  background: radial-gradient(circle at 50% 45%, var(--color-secondary) 0%, var(--color-bg) 70%);
+  background-color: #02072f;
+  background-image: url('/src/assets/images/background/fondo1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-text);
   text-align: center;
 }
