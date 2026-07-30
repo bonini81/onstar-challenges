@@ -1,29 +1,29 @@
 .screen {
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: var(--spacing-lg);
-  background: radial-gradient(circle at 50% 45%, var(--color-secondary) 0%, var(--color-bg) 70%);
+  background-color: #02072f;
+  background-image: url('/src/assets/images/background/fondo1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-text);
   text-align: center;
 }
 
 .ring {
   width: 100%;
-  max-width: 420px;
+  max-width: 640px;
   padding: var(--spacing-xl) var(--spacing-lg);
-  border-radius: 50%;
   aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-md);
-  box-shadow:
-    0 0 0 1px rgba(59, 91, 255, 0.35),
-    0 0 60px 10px rgba(18, 48, 224, 0.35),
-    inset 0 0 80px rgba(59, 91, 255, 0.25);
 }
 
 .logo {
@@ -34,19 +34,19 @@
 }
 
 .logoMark {
-  width: 56px;
-  height: 56px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: var(--color-text);
   color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 28px;
 }
 
 .logoText {
-  font-size: 22px;
+  font-size: 28px;
   line-height: 1.1;
   text-align: left;
 }
@@ -54,7 +54,7 @@
 .challenge {
   margin: 0;
   letter-spacing: 0.3em;
-  font-size: 14px;
+  font-size: 18px;
   color: var(--color-primary-light);
   text-transform: uppercase;
 }

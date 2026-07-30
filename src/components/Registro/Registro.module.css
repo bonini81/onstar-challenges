@@ -22,8 +22,8 @@
 }
 
 .step {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 2px solid var(--color-text);
   display: inline-flex;
@@ -76,7 +76,8 @@
 }
 
 .keyboardWrap :global(.hg-button) {
-  height: 48px;
+  height: 64px;
+  font-size: var(--font-size-lg);
   background: var(--color-bg-elevated);
   color: var(--color-text);
   border-bottom: none;

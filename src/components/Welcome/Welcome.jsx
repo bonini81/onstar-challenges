@@ -42,15 +42,11 @@ function Welcome() {
 
   return (
     <section className={styles.screen}>
+      <article className={styles.logo}>
+          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+        </article>
+      
       <div className={styles.ring}>
-        <div className={styles.logo}>
-          <span className={styles.logoMark}>On</span>
-          <span className={styles.logoText}>
-            Star<br />Negocios
-          </span>
-        </div>
-        <p className={styles.challenge}>Challenge</p>
-
         <h1 className={styles.headline}>
           Conoce al cliente
           <strong>
