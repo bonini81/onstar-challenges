@@ -35,7 +35,7 @@
   --spacing-md: calc(var(--spacing-unit) * 2);
   --spacing-lg: calc(var(--spacing-unit) * 4);
   --spacing-xl: calc(var(--spacing-unit) * 6);
-
+   --spacing-xxl: calc(var(--spacing-unit) * 18);
   /* Layout */
   --radius-base: 10px;
   --radius-pill: 999px;

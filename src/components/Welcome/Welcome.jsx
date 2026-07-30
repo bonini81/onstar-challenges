@@ -47,15 +47,7 @@ function Welcome() {
         </article>
       
       <div className={styles.ring}>
-        <h1 className={styles.headline}>
-          Conoce al cliente
-          <strong>
-            Detecta
-            <br />
-            el riesgo
-          </strong>
-          Vende la solución
-        </h1>
+       
 
         <button className={styles.primaryButton} onClick={() => navigate('/criterios')}>
           Iniciar
