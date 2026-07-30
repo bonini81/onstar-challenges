@@ -5,6 +5,86 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
+}
+
+.teamName {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+}
+
+.intro {
+  max-width: var(--max-content-width);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.checklist {
+  list-style: none;
+  width: 100%;
+  max-width: var(--max-content-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-base);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+}
+
+.check {
+  color: var(--color-primary-light);
+  font-weight: 700;
+}
+
+.timeNote {
+  max-width: var(--max-content-width);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-base);
+  background-color: var(--color-secondary);
+  margin: 0;
+}
+
+.primaryButton {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-transform: uppercase;
 }

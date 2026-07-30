@@ -1,22 +1,25 @@
 /*
-  Tokens de marca OnStar. Placeholder hasta recibir assets reales del cliente.
+  Tokens de marca OnStar Negocios.
+  Colores aproximados a partir de los wireframes de alta fidelidad (WireOnstarNegocios_OK.pdf).
+  Logo real, tipografía oficial y hex exactos siguen pendientes del cliente — ver CLAUDE.md.
   Todo .module.css debe consumir estos valores via var(--...), nunca hardcodear colores/fuentes.
 */
 :root {
   /* Colores */
-  --color-primary: #d32f2f;
-  --color-primary-dark: #a02525;
-  --color-secondary: #1a1a1a;
-  --color-bg: #ffffff;
-  --color-bg-alt: #f4f4f4;
-  --color-text: #1a1a1a;
-  --color-text-muted: #6b6b6b;
-  --color-border: #d9d9d9;
+  --color-bg: #050b2b;
+  --color-bg-elevated: #0a1442;
+  --color-primary: #1230e0;
+  --color-primary-light: #3b5bff;
+  --color-secondary: #0a1f6b;
+  --color-text: #ffffff;
+  --color-text-muted: #b9c2e8;
+  --color-border: rgba(255, 255, 255, 0.15);
   --color-success: #2e7d32;
-  --color-danger: #c62828;
+  --color-danger: #ff5c5c;
 
   /* Tipografía */
   --font-family: 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Arial Black', 'Helvetica Neue', sans-serif;
   --font-size-base: 18px;
   --font-size-lg: 24px;
   --font-size-xl: 32px;
@@ -31,5 +34,6 @@
 
   /* Layout */
   --radius-base: 8px;
+  --radius-pill: 999px;
   --max-content-width: 720px;
 }
