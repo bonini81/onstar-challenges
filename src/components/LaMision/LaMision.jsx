@@ -29,6 +29,10 @@ function LaMision() {
 
   return (
     <section className={styles.screen}>
+       <article className={styles.logo}>
+          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+        </article>
+        
       <h2 className={styles.teamName}>{team.name}</h2>
       <h1 className={styles.title}>
         <span className={styles.step}>2</span> La Misión

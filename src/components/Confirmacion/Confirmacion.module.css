@@ -28,6 +28,14 @@
   text-transform: uppercase;
 }
 
+.divider {
+  width: 75%;
+  max-width: var(--max-content-width);
+  height: 1px;
+  background: var(--color-text);
+  border: none;
+}
+
 .teamName {
   margin: 0;
   font-family: var(--font-family-heading);
