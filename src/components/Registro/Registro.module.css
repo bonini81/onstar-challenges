@@ -6,5 +6,87 @@
   justify-content: center;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+}
+
+.label {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.inputDisplay {
+  width: 100%;
+  max-width: var(--max-content-width);
+  min-height: 48px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 2px dashed var(--color-primary-light);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.keyboardWrap {
+  width: 100%;
+  max-width: var(--max-content-width);
+}
+
+.primaryButton {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.primaryButton:disabled {
+  background: var(--color-secondary);
+  color: var(--color-text-muted);
+}
+
+/* react-simple-keyboard trae su propio theme claro; lo recoloreamos para que combine con la marca. */
+.keyboardWrap :global(.simple-keyboard) {
+  background: transparent;
+  padding: 0;
+}
+
+.keyboardWrap :global(.hg-button) {
+  height: 48px;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.keyboardWrap :global(.hg-button.hg-activeButton) {
+  background: var(--color-primary-light);
+}
+
+.keyboardWrap :global(.hg-functionBtn) {
+  background: var(--color-secondary);
 }

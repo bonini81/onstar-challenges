@@ -141,34 +141,36 @@ Al confirmar nombre del equipo → transacción Firestore:
 7. Participación y coordinación del equipo
 8. (Por confirmar con cliente — usar dummy por ahora)
 
-## Business Cases (dummy data)
+## Business Cases (reales, ya cargados)
 
-Estructura de cada business case (6 en total, basado en wireframes):
+Los 6 casos reales fueron entregados por el cliente (`6 CASOS FINALES Y PERFILES ONSTAR NEGOCIOS.docx.pdf`) y viven hardcodeados en `src/data/businessCases.js`. Estructura de cada uno:
 
 ```js
 {
   id: 1,
+  titulo: "Cadena de frío y control de temperatura",
   clientProfile: {
-    nombre: "Carlos Andrade",
-    empresa: "Distribuciones Andinas",
-    actividad: "Entrega de alimentos y productos de consumo masivo",
-    flota: "8 camiones Chevrolet",
-    operacion: "Rutas urbanas con múltiples paradas",
-    situacion: "Utiliza GPS básico y controla entregas por WhatsApp"
+    nombre: "Andrea Salazar",
+    empresa: "Frío Express Ecuador",
+    actividad: "...",
+    flota: "12 camiones Chevrolet",
+    operacion: "...",
+    situacion: "..."
   },
   problema: {
-    principal: "Ha detectado desvíos de ruta y uso de vehículos fuera de horario autorizado",
-    secundario: "No puede identificar si el consumo elevado se debe a la ruta o al conductor",
-    objecion: "Ya tengo GPS, no veo la diferencia"
+    principal: "...",
+    secundario: "...",
+    objecion: "..."
   },
-  mision: [...],                  // bullets
+  mision: [...],                  // bullets — pantalla "Misión del Equipo"
   funcionesRecomendadas: [...],   // bullets
   puntosObligatorios: [...],      // bullets
+  beneficio: "...",               // texto — no tiene pantalla propia en el wireframe, se muestra dentro de Cierre Sugerido
   cierreSugerido: "..."           // texto completo
 }
 ```
 
-Los otros 5 casos se completan con dummy data similar hasta que el cliente entregue los reales. Fecha límite sugerida para recibir los casos reales: jueves.
+Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde `team.assignedCase`.
 
 ## Plan de Trabajo (Part-time ~4-5h/día)
 
@@ -189,11 +191,15 @@ Los otros 5 casos se completan con dummy data similar hasta que el cliente entre
 - ✅ Teclado virtual con react-simple-keyboard
 - ✅ Business cases hardcodeados en frontend
 - ✅ Ranking accesible por URL directa `/ranking` (para revisión días posteriores)
+- ✅ Criterio 8 va como placeholder editable (`criteria8`) en Calificación Parte 1, no se muestra en la pantalla de Criterios (pública) hasta tener el texto real
+- ✅ Sección "Beneficio para la rentabilidad..." de cada caso se muestra dentro de Cierre Sugerido (no tiene pantalla propia en el wireframe)
+- ⏳ Botón "Reiniciar" de Ranking Final: implementado sin acción por ahora, comportamiento por definir con el cliente
 - ✅ Misma URL para los 3 equipos — el registro los diferencia
 - ✅ CSS Modules en vez de Tailwind
 
 ## Pendientes del Cliente
-- [ ] 8vo criterio de evaluación
-- [ ] 6 business cases reales (deadline sugerido: jueves)
-- [ ] Assets de marca: logo OnStar, colores, tipografía
+- [ ] 8vo criterio de evaluación — pantallas de Calificación (13-14) ya dejan un slot placeholder (`criteria8`) listo para el texto real
+- [x] 6 business cases reales — recibidos y cargados en `src/data/businessCases.js`
+- [ ] Assets de marca: logo OnStar, colores, tipografía — se recibieron wireframes de alta fidelidad (`WireOnstarNegocios_OK.pdf`); paleta de `variables.css` está aproximada a partir de esas capturas, faltan hex exactos, logo vectorial y tipografía oficial
 - [ ] Confirmar tamaño de tablet: ¿7 o 10 pulgadas?
+- [ ] Definir qué debe hacer el botón "Reiniciar" en la pantalla de Ranking Final (nuevo en el wireframe, no estaba en el plan original) — por ahora se implementará sin acción
