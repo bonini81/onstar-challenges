@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import logo from '../../assets/images/logo-onStar.png'
 import { useNavigate } from 'react-router-dom'
 import { getTeam } from '../../firebase/teams'
 import { getStoredTeamId } from '../../utils/session'
