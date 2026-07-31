@@ -15,6 +15,7 @@ function Button({
   bgColor,
   textColor,
   icon = 'default',
+  iconState = true,
   className = '',
 }) {
   const style = {
@@ -31,7 +32,7 @@ function Button({
       disabled={disabled}
     >
       <span className={styles.label}>{children}</span>
-      {icon && (
+      {iconState && (
         <span className={styles.iconWrap}>
           <img src={ICONS[icon]} alt="Icono" className={styles.icon} />
         </span>
