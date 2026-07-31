@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import logo from '../../assets/images/logo-onStar.png'
 import { useNavigate } from 'react-router-dom'
 import { getTeam } from '../../firebase/teams'
 import { getStoredTeamId } from '../../utils/session'
@@ -44,7 +45,7 @@ function Welcome() {
   return (
     <section className={styles.screen}>
       <article className={styles.logo}>
-          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+          <img src={logo} alt="Logo OnStar" />
         </article>
       
       <div className={styles.ring}>

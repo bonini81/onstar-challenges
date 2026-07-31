@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import logo from '../../assets/images/logo-onStar.png'
 import { EVALUATION_CRITERIA } from '../../data/criteria'
 import Button from '../Button/Button'
 import styles from './Criterios.module.css'
@@ -14,7 +15,7 @@ function Criterios() {
     <section className={styles.screen}>
 
        <article className={styles.logo}>
-                <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+                <img src={logo} alt="Logo OnStar" />
               </article>
 
   

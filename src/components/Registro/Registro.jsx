@@ -4,6 +4,7 @@ import Keyboard from 'react-simple-keyboard'
 import 'react-simple-keyboard/build/css/index.css'
 import Button from '../Button/Button'
 import styles from './Registro.module.css'
+import logo from '../../assets/images/logo-onStar.png'
 
 const MAX_LENGTH = 24
 
@@ -66,7 +67,7 @@ function Registro() {
     <section className={styles.screen}>
       
         <article className={styles.logo}>
-                <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+                <img src={logo} alt="Logo OnStar" />
               </article>
             
       <h1 className={styles.title}>

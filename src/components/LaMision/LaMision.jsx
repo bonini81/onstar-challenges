@@ -3,6 +3,7 @@ import { useTeam } from '../../hooks/useTeam'
 import { startMission } from '../../firebase/teams'
 import Button from '../Button/Button'
 import styles from './LaMision.module.css'
+import logo from '../../assets/images/logo-onStar.png'
 
 const STEPS = ['Conoce a tu cliente', 'Detecta el problema', 'Construye la solución', 'Vende y cierra']
 
@@ -31,7 +32,7 @@ function LaMision() {
   return (
     <section className={styles.screen}>
        <article className={styles.logo}>
-          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+          <img src={logo} alt="Logo OnStar" />
         </article>
         
       <h2 className={styles.teamName}>{team.name}</h2>
