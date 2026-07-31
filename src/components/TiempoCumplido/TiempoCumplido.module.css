@@ -1,10 +1,47 @@
 .screen {
+  position: relative;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: #02072f;
+  background-image: url('/src/assets/images/background/fondo2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text);
   text-align: center;
+}
+
+.logo {
+  position: absolute;
+  top: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family-heading);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xxl);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.card {
+  width: 100%;
+  max-width: var(--max-content-width);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+}
+
+.card p {
+  margin: 0;
 }

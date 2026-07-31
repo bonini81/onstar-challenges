@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore'
 import { db } from './config'
 
 export const GAME_STATE_DOC_ID = 'current'
@@ -20,4 +20,11 @@ export async function ensureGameState() {
 
 export function getGameStateRef() {
   return gameStateRef
+}
+
+// Usado por RankingEspera para saltar a /ranking en cuanto rankingsUnlocked pasa a true.
+export function subscribeGameState(callback) {
+  return onSnapshot(gameStateRef, (snapshot) => {
+    callback(snapshot.data() ?? DEFAULT_GAME_STATE)
+  })
 }

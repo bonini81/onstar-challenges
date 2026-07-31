@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, runTransaction, serverTimestamp, updateDoc } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, onSnapshot, runTransaction, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { db } from './config'
 import { getGameStateRef } from './gameState'
 
@@ -50,5 +50,32 @@ export async function startMission(teamId) {
   await updateDoc(teamRef, {
     status: 'reading',
     readingStartedAt: serverTimestamp(),
+  })
+}
+
+// Idempotente: solo bloquea equipos que siguen en 'reading' (evita pisar un
+// estado más avanzado si el timer local dispara tarde).
+export async function lockTeam(teamId) {
+  const teamRef = doc(teamsCollection, teamId)
+  const snapshot = await getDoc(teamRef)
+  if (!snapshot.exists() || snapshot.data().status !== 'reading') return
+
+  await updateDoc(teamRef, { status: 'locked' })
+}
+
+export async function setTeamStatus(teamId, status) {
+  await updateDoc(doc(teamsCollection, teamId), { status })
+}
+
+export async function getAllTeams() {
+  const snapshot = await getDocs(teamsCollection)
+  return snapshot.docs.map((teamDoc) => ({ id: teamDoc.id, ...teamDoc.data() }))
+}
+
+// Usado por RankingEspera para mostrar el progreso (equipos completados / total)
+// mientras se espera a que terminen los demás equipos.
+export function subscribeTeams(callback) {
+  return onSnapshot(teamsCollection, (snapshot) => {
+    callback(snapshot.docs.map((teamDoc) => ({ id: teamDoc.id, ...teamDoc.data() })))
   })
 }

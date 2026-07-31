@@ -3,8 +3,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  justify-content: flex-start;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: #02072f;
+  background-image: url('/src/assets/images/background/fondo2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text);
   text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family-heading);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 50%;
+  max-width: var(--max-content-width);
+  height: 1px;
+  background: var(--color-primary-light);
+  border: none;
+}
+
+.list {
+  width: 100%;
+  max-width: var(--max-content-width);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  text-align: left;
+}
+
+.position {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  width: 1.5em;
+}
+
+.name {
+  flex: 1;
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+}
+
+.points {
+  color: var(--color-text-muted);
 }
