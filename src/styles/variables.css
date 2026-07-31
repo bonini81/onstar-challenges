@@ -10,10 +10,10 @@
 */
 :root {
   /* Colores */
-  --color-bg: #050b2b;
+  --color-bg: #02092f;
   --color-bg-elevated: #0a1442;
   --color-primary: #1230e0;
-  --color-primary-light: #3b5bff;
+  --color-primary-light: #012dfc;
   --color-secondary: #0a1f6b;
   --color-text: #ffffff;
   --color-text-muted: #b9c2e8;
@@ -22,22 +22,26 @@
   --color-danger: #ff5c5c;
 
   /* Tipografía */
-  --font-family: 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-family: 'Onest', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Chevy Sans', 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-family-heading-narrow: 'Chevy Sans Narrow', 'Arial Narrow', 'Helvetica Neue', sans-serif;
   --font-size-base: 22px;
   --font-size-lg: 30px;
   --font-size-xl: 42px;
   --font-size-timer: 56px;
+  --font-size-xxl: 80px;
 
   /* Spacing */
   --spacing-unit: 10px;
+  --spacing-xs: calc(var(--spacing-unit) * 0.5);
   --spacing-sm: calc(var(--spacing-unit) * 1);
   --spacing-md: calc(var(--spacing-unit) * 2);
   --spacing-lg: calc(var(--spacing-unit) * 4);
   --spacing-xl: calc(var(--spacing-unit) * 6);
-
+   --spacing-xxl: calc(var(--spacing-unit) * 18);
   /* Layout */
   --radius-base: 10px;
   --radius-pill: 999px;
   --max-content-width: 680px;
+  --app-width: 800px;
 }

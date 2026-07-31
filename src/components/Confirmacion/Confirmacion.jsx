@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { createTeam } from '../../firebase/teams'
 import { setStoredTeamId } from '../../utils/session'
+import Button from '../Button/Button'
 import styles from './Confirmacion.module.css'
 
 function Confirmacion() {
@@ -47,12 +48,18 @@ function Confirmacion() {
         {error && <p className={styles.error}>{error}</p>}
 
         <div className={styles.actions}>
-          <button className={styles.secondaryButton} onClick={handleBack} disabled={submitting}>
+          <Button
+            onClick={handleBack}
+            disabled={submitting}
+            bgColor="var(--color-bg)"
+            textColor="var(--color-text)"
+            icon="iconWhite"
+          >
             Atrás
-          </button>
-          <button className={styles.primaryButton} onClick={handleConfirm} disabled={submitting}>
+          </Button>
+          <Button onClick={handleConfirm} disabled={submitting} bgColor="var(--color-text)" textColor="var(--color-primary)">
             {submitting ? 'Confirmando…' : 'Confirmar'}
-          </button>
+          </Button>
         </div>
       </div>
     </section>

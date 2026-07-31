@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import logo from '../../assets/images/logo-onStar.png'
 import { useNavigate } from 'react-router-dom'
 import { getTeam } from '../../firebase/teams'
 import { getStoredTeamId } from '../../utils/session'
+import Button from '../Button/Button'
 import styles from './Welcome.module.css'
 
 // A dónde mandar a un equipo que recarga la tablet, según en qué quedó su sesión.
@@ -43,23 +45,13 @@ function Welcome() {
   return (
     <section className={styles.screen}>
       <article className={styles.logo}>
-          <img src="/src/assets/images/logo-onStar.png" alt="Logo OnStar" />
+          <img src={logo} alt="Logo OnStar" />
         </article>
       
       <div className={styles.ring}>
-        <h1 className={styles.headline}>
-          Conoce al cliente
-          <strong>
-            Detecta
-            <br />
-            el riesgo
-          </strong>
-          Vende la solución
-        </h1>
+       
 
-        <button className={styles.primaryButton} onClick={() => navigate('/criterios')}>
-          Iniciar
-        </button>
+        <Button onClick={() => navigate('/criterios')}>Iniciar</Button>
       </div>
     </section>
   )
