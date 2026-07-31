@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useTeam } from '../../hooks/useTeam'
 import { startMission } from '../../firebase/teams'
+import Button from '../Button/Button'
 import styles from './LaMision.module.css'
 
 const STEPS = ['Conoce a tu cliente', 'Detecta el problema', 'Construye la solución', 'Vende y cierra']
@@ -57,9 +58,7 @@ function LaMision() {
         Tienes <strong>3 minutos</strong> para crear un pitch de venta ganador con tu equipo.
       </p>
 
-      <button className={styles.primaryButton} onClick={handleStart}>
-        ¡Iniciar Misión Ahora!
-      </button>
+      <Button onClick={handleStart}>¡Iniciar Misión Ahora!</Button>
     </section>
   )
 }

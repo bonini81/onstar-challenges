@@ -55,27 +55,3 @@
   gap: var(--spacing-md);
 }
 
-.primaryButton,
-.secondaryButton {
-  border: none;
-  border-radius: var(--radius-pill);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.primaryButton {
-  background: var(--color-text);
-  color: var(--color-primary);
-}
-
-.secondaryButton {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.primaryButton:disabled,
-.secondaryButton:disabled {
-  opacity: 0.6;
-}

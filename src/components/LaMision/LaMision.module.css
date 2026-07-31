@@ -85,13 +85,3 @@
   margin: 0;
 }
 
-.primaryButton {
-  border: none;
-  border-radius: var(--radius-pill);
-  padding: var(--spacing-sm) var(--spacing-xl);
-  background: var(--color-primary);
-  color: var(--color-text);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  text-transform: uppercase;
-}

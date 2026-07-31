@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Keyboard from 'react-simple-keyboard'
 import 'react-simple-keyboard/build/css/index.css'
+import Button from '../Button/Button'
 import styles from './Registro.module.css'
 
 const MAX_LENGTH = 24
@@ -88,9 +89,9 @@ function Registro() {
         />
       </div>
 
-      <button className={styles.primaryButton} onClick={handleSubmit} disabled={!teamName.trim()}>
+      <Button onClick={handleSubmit} disabled={!teamName.trim()}>
         Listo
-      </button>
+      </Button>
     </section>
   )
 }

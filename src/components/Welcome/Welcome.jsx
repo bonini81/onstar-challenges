@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getTeam } from '../../firebase/teams'
 import { getStoredTeamId } from '../../utils/session'
+import Button from '../Button/Button'
 import styles from './Welcome.module.css'
 
 // A dónde mandar a un equipo que recarga la tablet, según en qué quedó su sesión.
@@ -49,9 +50,7 @@ function Welcome() {
       <div className={styles.ring}>
        
 
-        <button className={styles.primaryButton} onClick={() => navigate('/criterios')}>
-          Iniciar
-        </button>
+        <Button onClick={() => navigate('/criterios')}>Iniciar</Button>
       </div>
     </section>
   )
