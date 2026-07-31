@@ -32,6 +32,7 @@
 
   /* Spacing */
   --spacing-unit: 10px;
+  --spacing-xs: calc(var(--spacing-unit) * 0.5);
   --spacing-sm: calc(var(--spacing-unit) * 1);
   --spacing-md: calc(var(--spacing-unit) * 2);
   --spacing-lg: calc(var(--spacing-unit) * 4);
