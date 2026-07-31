@@ -200,6 +200,7 @@ Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde 
 ## Pendientes del Cliente
 - [ ] 8vo criterio de evaluación — pantallas de Calificación (13-14) ya dejan un slot placeholder (`criteria8`) listo para el texto real
 - [x] 6 business cases reales — recibidos y cargados en `src/data/businessCases.js`
-- [ ] Assets de marca: logo OnStar, colores, tipografía — se recibieron wireframes de alta fidelidad (`WireOnstarNegocios_OK.pdf`); paleta de `variables.css` está aproximada a partir de esas capturas, faltan hex exactos, logo vectorial y tipografía oficial
+- [ ] Assets de marca: logo OnStar, colores — se recibieron wireframes de alta fidelidad (`WireOnstarNegocios_OK.pdf`); paleta de `variables.css` está aproximada a partir de esas capturas, faltan hex exactos y logo vectorial
+- [x] Tipografía oficial — recibida (Chevy Sans Black, Chevy Sans Narrow ExtraBold, Onest) y cargada como `@font-face` en `src/styles/fonts.css`, expuesta vía `--font-family`, `--font-family-heading`, `--font-family-heading-narrow` en `variables.css`
 - [x] Confirmar tamaño de tablet: ¿7 o 10 pulgadas? — Confirmado: 10 pulgadas, Samsung Galaxy Tab, 800x1280px, modo portrait
 - [ ] Definir qué debe hacer el botón "Reiniciar" en la pantalla de Ranking Final (nuevo en el wireframe, no estaba en el plan original) — por ahora se implementará sin acción

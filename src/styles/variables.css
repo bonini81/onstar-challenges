@@ -22,8 +22,9 @@
   --color-danger: #ff5c5c;
 
   /* Tipografía */
-  --font-family: 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-family: 'Onest', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Chevy Sans', 'Arial Black', 'Helvetica Neue', sans-serif;
+  --font-family-heading-narrow: 'Chevy Sans Narrow', 'Arial Narrow', 'Helvetica Neue', sans-serif;
   --font-size-base: 22px;
   --font-size-lg: 30px;
   --font-size-xl: 42px;
