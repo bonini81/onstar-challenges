@@ -24,7 +24,7 @@
 }
 
 .title {
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-heading-narrow);
   font-size: var(--font-size-lg);
   text-transform: uppercase;
   margin: 0;
@@ -45,7 +45,9 @@
 }
 
 .label {
-  color: var(--color-text-muted);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
   margin: 0;
 }
 
@@ -55,6 +57,7 @@
   min-height: 48px;
   padding: var(--spacing-sm) var(--spacing-md);
   border-bottom: 2px dashed var(--color-primary-light);
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   font-weight: 700;
   text-transform: uppercase;

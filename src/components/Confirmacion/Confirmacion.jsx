@@ -51,9 +51,9 @@ function Confirmacion() {
           <Button
             onClick={handleBack}
             disabled={submitting}
-            icon={false}
             bgColor="var(--color-bg)"
             textColor="var(--color-text)"
+            icon="iconWhite"
           >
             Atrás
           </Button>

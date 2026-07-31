@@ -1,5 +1,11 @@
 import iconButton from '../../assets/images/iconButton.png'
+import iconButton2 from '../../assets/images/iconButton2.png'
 import styles from './Button.module.css'
+
+const ICONS = {
+  default: iconButton,
+  iconWhite: iconButton2,
+}
 
 function Button({
   children,
@@ -8,7 +14,7 @@ function Button({
   disabled = false,
   bgColor,
   textColor,
-  icon = true,
+  icon = 'default',
   className = '',
 }) {
   const style = {
@@ -27,7 +33,7 @@ function Button({
       <span className={styles.label}>{children}</span>
       {icon && (
         <span className={styles.iconWrap}>
-          <img src={iconButton} alt="" className={styles.icon} />
+          <img src={ICONS[icon]} alt="Icono" className={styles.icon} />
         </span>
       )}
     </button>
