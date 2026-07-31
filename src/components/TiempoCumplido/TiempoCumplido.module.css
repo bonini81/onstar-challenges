@@ -8,7 +8,7 @@
   gap: var(--spacing-lg);
   padding: var(--spacing-xl) var(--spacing-lg);
   background-color: #02072f;
-  background-image: url('/src/assets/images/background/fondo2.png');
+  background-image: url('/src/assets/images/background/fondo2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
