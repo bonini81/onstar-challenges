@@ -74,3 +74,40 @@
 .points {
   color: var(--color-text);
 }
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.spinner {
+  width: 140px;
+  height: 140px;
+  margin-top: var(--spacing-xl);
+  border-radius: 50%;
+  border: 8px solid var(--color-secondary);
+  border-top-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 1.2s linear infinite;
+}
+
+.percent {
+  display: inline-block;
+  animation: spin-reverse 1.2s linear infinite;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}

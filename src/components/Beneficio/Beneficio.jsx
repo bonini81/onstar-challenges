@@ -3,10 +3,10 @@ import { useTeam } from '../../hooks/useTeam'
 import { useMissionTimer } from '../../hooks/useMissionTimer'
 import { getBusinessCaseById } from '../../data/businessCases'
 import Button from '../Button/Button'
-import styles from './PuntosObligatorios.module.css'
+import styles from './Beneficio.module.css'
 import logo from '../../assets/images/logo-onStar.png'
 
-function PuntosObligatorios() {
+function Beneficio() {
   const navigate = useNavigate()
   const { team, loading } = useTeam()
   const { label } = useMissionTimer(team)
@@ -23,7 +23,7 @@ function PuntosObligatorios() {
     )
   }
 
-  const { puntosObligatorios } = getBusinessCaseById(team.assignedCase)
+  const { beneficio } = getBusinessCaseById(team.assignedCase)
 
   return (
     <section className={styles.screen}>
@@ -33,27 +33,23 @@ function PuntosObligatorios() {
 
       <p className={styles.timer}>{label}</p>
 
-      <h1 className={styles.title}>Puntos Obligatorios que debe mencionar el equipo</h1>
+      <h1 className={styles.title}>Beneficio para la rentabilidad y protección del negocio</h1>
       <hr className={styles.divider} />
 
       <div className={styles.card}>
-        <ul className={styles.list}>
-          {puntosObligatorios.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <p className={styles.quote}>{beneficio}</p>
       </div>
 
       <div className={styles.actions}>
         <Button
-          onClick={() => navigate('/funciones-recomendadas')}
+          onClick={() => navigate('/puntos-obligatorios')}
         >
           Atrás
         </Button>
-        <Button onClick={() => navigate('/beneficio')}>Siguiente</Button>
+        <Button onClick={() => navigate('/cierre-sugerido')}>Siguiente</Button>
       </div>
     </section>
   )
 }
 
-export default PuntosObligatorios
+export default Beneficio

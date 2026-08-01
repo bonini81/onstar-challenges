@@ -8,7 +8,7 @@ import styles from './CalificacionParte1.module.css'
 import logo from '../../assets/images/logo-onStar.png'
 
 // Parte 1: criterios 1, 2, 3 y el criterio 8 (placeholder, ver CLAUDE.md > Decisiones Tomadas).
-const PART1_CRITERIA = [EVALUATION_CRITERIA[0], EVALUATION_CRITERIA[1], EVALUATION_CRITERIA[2], EVALUATION_CRITERIA[7]]
+const PART1_CRITERIA = [EVALUATION_CRITERIA[0], EVALUATION_CRITERIA[1], EVALUATION_CRITERIA[2], EVALUATION_CRITERIA[3]]
 
 function CalificacionParte1() {
   const navigate = useNavigate()

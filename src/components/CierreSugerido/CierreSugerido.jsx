@@ -23,7 +23,7 @@ function CierreSugerido() {
     )
   }
 
-  const { cierreSugerido, beneficio } = getBusinessCaseById(team.assignedCase)
+  const { cierreSugerido } = getBusinessCaseById(team.assignedCase)
 
   return (
     <section className={styles.screen}>
@@ -38,12 +38,11 @@ function CierreSugerido() {
 
       <div className={styles.card}>
         <p className={styles.quote}>{cierreSugerido}</p>
-        <p className={styles.beneficio}>{beneficio}</p>
       </div>
 
       <div className={styles.actions}>
         <Button
-          onClick={() => navigate('/puntos-obligatorios')}
+          onClick={() => navigate('/beneficio')}
         >
           Atrás
         </Button>

@@ -9,7 +9,7 @@ import styles from './CalificacionParte2.module.css'
 import logo from '../../assets/images/logo-onStar.png'
 
 // Parte 2: los 4 criterios restantes (4, 5, 6 y 7).
-const PART2_CRITERIA = [EVALUATION_CRITERIA[3], EVALUATION_CRITERIA[4], EVALUATION_CRITERIA[5], EVALUATION_CRITERIA[6]]
+const PART2_CRITERIA = [EVALUATION_CRITERIA[4], EVALUATION_CRITERIA[5], EVALUATION_CRITERIA[6], EVALUATION_CRITERIA[7]]
 
 function CalificacionParte2() {
   const navigate = useNavigate()
