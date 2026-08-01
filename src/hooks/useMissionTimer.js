@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { lockTeam } from '../firebase/teams'
 
-export const MISSION_DURATION_SECONDS = 180
+// TEMPORAL: subido a 1 hora para poder ajustar el frontend sin el límite de
+// 3 minutos. Volver a 180 antes del evento — ver conversación del 2026-07-31.
+export const MISSION_DURATION_SECONDS = 12600
 
 const LOCKED_STATUSES = ['locked', 'scoring', 'completed']
 

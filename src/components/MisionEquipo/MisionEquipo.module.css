@@ -7,7 +7,7 @@
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
   background-color: #02072f;
-  background-image: url('/src/assets/images/background/fondo2.png');
+  background-image: url('/src/assets/images/background/fondo2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,12 +23,16 @@
 }
 
 .timer {
+  width: 390px;
   margin: 0;
   padding: var(--spacing-xs) var(--spacing-xl);
   border-radius: var(--radius-base);
-  background: var(--color-secondary);
+  background-image: url('/src/assets/images/background/fondo-timer1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-timer);
+  font-size: var(--font-size-xxl);
   font-weight: 900;
 }
 
@@ -45,20 +49,27 @@
   height: 1px;
   background: var(--color-primary-light);
   border: none;
+  margin: 0px;
 }
 
 .card {
   width: 100%;
   max-width: var(--max-content-width);
   padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
   border-radius: var(--radius-base);
-  background-color: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
+  background-image: url('/src/assets/images/background/fondo-timer2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--color-primary-light);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
   text-align: left;
+  font-size: var(--font-size-base);
 }
+
 
 .intro {
   margin: 0;
@@ -76,6 +87,6 @@
 .actions {
   display: flex;
   gap: var(--spacing-md);
-  margin-top: auto;
+  margin-top: var(--spacing-md);
   padding-top: var(--spacing-lg);
 }

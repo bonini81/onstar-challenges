@@ -50,7 +50,7 @@ function TiempoCumplido() {
         </p>
       </div>
 
-      <Button onClick={handleFacilitatorAccess}>Acceso facilitador</Button>
+      <Button onClick={handleFacilitatorAccess} className={styles.buttonTiempoComplido}>Acceso facilitador</Button>
     </section>
   )
 }

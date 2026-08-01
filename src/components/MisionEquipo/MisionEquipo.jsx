@@ -48,9 +48,6 @@ function MisionEquipo() {
       <div className={styles.actions}>
         <Button
           onClick={() => navigate('/problema-cliente')}
-          bgColor="var(--color-bg)"
-          textColor="var(--color-text)"
-          icon="iconWhite"
         >
           Atrás
         </Button>
