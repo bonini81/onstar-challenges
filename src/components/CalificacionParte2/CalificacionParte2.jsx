@@ -58,6 +58,7 @@ function CalificacionParte2() {
       </article>
 
       <h1 className={styles.title}>Equipo: {team.name}</h1>
+         <hr className={styles.divider} />
       <p className={styles.intro}>
         Facilitador, califica al equipo según cada parámetro de evaluación siendo 1 el puntaje más bajo y 5 el más
         alto.

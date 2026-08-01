@@ -36,9 +36,10 @@ function ScoreFinal() {
       </article>
 
       <h1 className={styles.title}>
-        Equipo: <span className={styles.teamName}>{team.name}</span>
+        Equipo: <br />
+        <span className={styles.teamName}>{team.name}</span>
       </h1>
-
+        <hr className={styles.divider} />
       <p className={styles.score}>
         <strong>Puntaje:</strong> {score.total} / 40
       </p>
