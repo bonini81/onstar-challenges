@@ -49,6 +49,7 @@
   height: 1px;
   background: var(--color-primary-light);
   border: none;
+  margin: 0px;
 }
 
 .card {

@@ -47,9 +47,6 @@ function PuntosObligatorios() {
       <div className={styles.actions}>
         <Button
           onClick={() => navigate('/funciones-recomendadas')}
-          bgColor="var(--color-bg)"
-          textColor="var(--color-text)"
-          icon="iconWhite"
         >
           Atrás
         </Button>

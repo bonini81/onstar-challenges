@@ -47,9 +47,6 @@ function FuncionesRecomendadas() {
       <div className={styles.actions}>
         <Button
           onClick={() => navigate('/mision-equipo')}
-          bgColor="var(--color-bg)"
-          textColor="var(--color-text)"
-          icon="iconWhite"
         >
           Atrás
         </Button>

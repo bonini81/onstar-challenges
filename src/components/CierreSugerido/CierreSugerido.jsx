@@ -44,9 +44,6 @@ function CierreSugerido() {
       <div className={styles.actions}>
         <Button
           onClick={() => navigate('/puntos-obligatorios')}
-          bgColor="var(--color-bg)"
-          textColor="var(--color-text)"
-          icon="iconWhite"
         >
           Atrás
         </Button>
