@@ -9,6 +9,7 @@ import ProblemaCliente from './components/ProblemaCliente/ProblemaCliente'
 import MisionEquipo from './components/MisionEquipo/MisionEquipo'
 import FuncionesRecomendadas from './components/FuncionesRecomendadas/FuncionesRecomendadas'
 import PuntosObligatorios from './components/PuntosObligatorios/PuntosObligatorios'
+import Beneficio from './components/Beneficio/Beneficio'
 import CierreSugerido from './components/CierreSugerido/CierreSugerido'
 import TiempoCumplido from './components/TiempoCumplido/TiempoCumplido'
 import CalificacionParte1 from './components/CalificacionParte1/CalificacionParte1'
@@ -30,6 +31,7 @@ function App() {
       <Route path="/mision-equipo" element={<MisionEquipo />} />
       <Route path="/funciones-recomendadas" element={<FuncionesRecomendadas />} />
       <Route path="/puntos-obligatorios" element={<PuntosObligatorios />} />
+      <Route path="/beneficio" element={<Beneficio />} />
       <Route path="/cierre-sugerido" element={<CierreSugerido />} />
       <Route path="/tiempo-cumplido" element={<TiempoCumplido />} />
       <Route path="/calificacion-1" element={<CalificacionParte1 />} />

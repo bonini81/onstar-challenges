@@ -109,7 +109,7 @@ Al confirmar nombre del equipo → transacción Firestore:
 ### Timer
 `readingStartedAt` se guarda en Firestore al presionar "Iniciar Misión Ahora". El frontend calcula tiempo restante desde ese timestamp — no desde estado local. Al llegar a 0 → pantalla TIEMPO CUMPLIDO (pantallas anteriores quedan bloqueadas). Sin timer de 15 minutos — el facilitador controla el flujo presionando "Acceso facilitador".
 
-## Flujo de Pantallas (17 en total)
+## Flujo de Pantallas (18 en total)
 
 | # | Pantalla | Notas |
 |---|----------|-------|
@@ -123,13 +123,14 @@ Al confirmar nombre del equipo → transacción Firestore:
 | 8 | Misión del Equipo | Timer. Atrás / Siguiente |
 | 9 | Funciones Recomendadas | Timer. Atrás / Siguiente |
 | 10 | Puntos Obligatorios | Timer. Atrás / Siguiente |
-| 11 | Cierre Sugerido | Timer. Atrás (última pantalla antes de timeout) |
-| 12 | TIEMPO CUMPLIDO | Texto grande. "Acceso facilitador" button |
-| 13 | Calificación Parte 1 | Facilitador. 4 criterios × radio 1-5. Siguiente |
-| 14 | Calificación Parte 2 | Facilitador. 4 criterios × radio 1-5. Siguiente |
-| 15 | Score Final | "Equipo: Los Duros — Puntaje: 32/40". Botón "Ver Ranking" |
-| 16 | Ranking — Espera | "Cargando resultados, esperando otros equipos..." |
-| 17 | Ranking — Final | 1°/2°/3° con puntos. Accesible también por URL directa `/ranking` |
+| 11 | Beneficio | Timer. Atrás / Siguiente — "Beneficio para la rentabilidad y protección del negocio" |
+| 12 | Cierre Sugerido | Timer. Atrás (última pantalla antes de timeout) |
+| 13 | TIEMPO CUMPLIDO | Texto grande. "Acceso facilitador" button |
+| 14 | Calificación Parte 1 | Facilitador. 4 criterios × radio 1-5. Siguiente |
+| 15 | Calificación Parte 2 | Facilitador. 4 criterios × radio 1-5. Siguiente |
+| 16 | Score Final | "Equipo: Los Duros — Puntaje: 32/40". Botón "Ver Ranking" |
+| 17 | Ranking — Espera | "Cargando resultados, esperando otros equipos..." |
+| 18 | Ranking — Final | 1°/2°/3° con puntos. Accesible también por URL directa `/ranking` |
 
 ## Criterios de Evaluación (8 × 5 pts = 40 pts)
 1. Comprensión del cliente
@@ -165,7 +166,7 @@ Los 6 casos reales fueron entregados por el cliente (`6 CASOS FINALES Y PERFILES
   mision: [...],                  // bullets — pantalla "Misión del Equipo"
   funcionesRecomendadas: [...],   // bullets
   puntosObligatorios: [...],      // bullets
-  beneficio: "...",               // texto — no tiene pantalla propia en el wireframe, se muestra dentro de Cierre Sugerido
+  beneficio: "...",               // texto — pantalla propia "Beneficio para la rentabilidad y protección del negocio"
   cierreSugerido: "..."           // texto completo
 }
 ```
@@ -178,7 +179,7 @@ Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde 
 |-----|-----------|
 | Martes tarde | Setup: Firebase + Vite/React + CSS Modules + React Router + react-simple-keyboard. Estructura de rutas. Seed de `gameState` en Firestore. |
 | Miércoles | Pantallas 1-5: Welcome → Criterios → Registro (teclado virtual) → Confirmación → La Misión. Transacción atómica de asignación de business case. Session recovery desde localStorage. |
-| Jueves | Pantallas 6-12: 6 sub-pantallas de business case + timer persistido en Firestore + pantalla TIEMPO CUMPLIDO. |
+| Jueves | Pantallas 6-13: 7 sub-pantallas de business case + timer persistido en Firestore + pantalla TIEMPO CUMPLIDO. |
 | Viernes | Pantallas 13-15: Calificación facilitador (2 pantallas) + Score final. Lógica de desbloqueo de ranking. |
 | Sábado | Pantallas 16-17: Ranking (espera + resultado). UI polish para tablet vertical. Cargar los 6 business cases (dummy). Deploy a Firebase Hosting. |
 | Domingo | Pruebas en tablet real. Bug fixes. Buffer. |
@@ -192,7 +193,7 @@ Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde 
 - ✅ Business cases hardcodeados en frontend
 - ✅ Ranking accesible por URL directa `/ranking` (para revisión días posteriores)
 - ✅ Criterio 8 va como placeholder editable (`criteria8`) en Calificación Parte 1, no se muestra en la pantalla de Criterios (pública) hasta tener el texto real
-- ✅ Sección "Beneficio para la rentabilidad..." de cada caso se muestra dentro de Cierre Sugerido (no tiene pantalla propia en el wireframe)
+- ✅ Sección "Beneficio para la rentabilidad y protección del negocio" tiene su propia pantalla (`/beneficio`), entre Puntos Obligatorios y Cierre Sugerido
 - ⏳ Botón "Reiniciar" de Ranking Final: implementado sin acción por ahora, comportamiento por definir con el cliente
 - ✅ Misma URL para los 3 equipos — el registro los diferencia
 - ✅ CSS Modules en vez de Tailwind

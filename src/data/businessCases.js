@@ -1,5 +1,5 @@
 // Fuente: "6 CASOS FINALES Y PERFILES ONSTAR NEGOCIOS.docx.pdf" (entregado por el cliente).
-// El campo `beneficio` no tiene pantalla propia en el wireframe: se muestra dentro de Cierre Sugerido.
+// El campo `beneficio` se muestra en la pantalla "Beneficio para la rentabilidad y protección del negocio".
 export const BUSINESS_CASES = [
   {
     id: 1,
