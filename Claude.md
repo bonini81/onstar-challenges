@@ -6,7 +6,8 @@ Web App para evento corporativo de OnStar (marca automotriz).
 - **Dispositivo**: Tablet (modo vertical, 10 pulgadas recomendado — por confirmar)
 - **Navegador**: Chrome en tablet
 - **Usuarios**: 3 equipos simultáneos
-- **Duración de uso**: Día del evento + ~4 días posteriores
+- **Duración del evento**: 2 días — mismos 3 equipos ambos días, 3 business cases nuevos por día (ver "Evento de 2 días" en Arquitectura Firestore)
+- **Duración de uso**: 2 días del evento + ~4 días posteriores
 - **Deadline**: Lunes al mediodía (desarrollo part-time desde martes)
 
 ## Tech Stack
@@ -60,12 +61,13 @@ src/
 Cada `.module.css` consume estas variables con `var(--color-primary)`, etc.
 
 ## Dinámica del Evento
-- 3 equipos, cada uno con una tablet
-- 6 business cases disponibles, asignados aleatoriamente sin repetición
+- Evento de 2 días, mismos 3 equipos ambos días, cada uno con una tablet
+- 6 business cases en total: 3 se asignan aleatoriamente sin repetición el día 1, los 3 restantes el día 2 (ver "Evento de 2 días")
 - El equipo tiene 3 minutos para leer su business case y preparar su pitch
 - Al terminar el timer → pantalla TIEMPO CUMPLIDO → entregan tablet al facilitador
 - El facilitador califica al equipo (8 criterios, escala 1-5, total 40 pts)
-- Al terminar los 3 equipos → se desbloquea el Ranking final
+- Al terminar los 3 equipos del día → se desbloquea el Ranking de ese día
+- El facilitador cierra el día presionando "Reiniciar" en Ranking Final (ver "Evento de 2 días")
 
 ## Arquitectura Firestore
 
@@ -75,6 +77,7 @@ Cada `.module.css` consume estas variables con `var(--color-primary)`, etc.
 ```
 availableCases: [1, 2, 3, 4, 5, 6]   // pool de casos disponibles
 rankingsUnlocked: false
+eventDay: 1                          // 1 = día 1, 2 = día 2 — ver "Evento de 2 días"
 ```
 
 **teams/{teamId}**
@@ -105,6 +108,14 @@ Al confirmar nombre del equipo → transacción Firestore:
 
 ### Sesión
 `localStorage` guarda el `teamId` generado al registrarse. Si recargan la tablet, recupera estado desde Firestore y retoma donde estaba.
+
+### Evento de 2 días
+El evento se corre en 2 días, ambos con los mismos 3 equipos físicos (tablets) y 3 business cases por día, sin repetir caso dentro del mismo día. `gameState.eventDay` controla en qué día está el evento y qué hace el botón "Reiniciar" de la pantalla Ranking Final (`RankingFinal.jsx`):
+
+- **`eventDay === 1` → primer click de "Reiniciar" (cierre del día 1)**: borra todos los docs de `teams` y `scores` (`deleteAllTeams`, `deleteAllScores`), pone `rankingsUnlocked: false` y `eventDay: 2` (`startNextEventDay` en `src/firebase/gameState.js`). **No** toca `availableCases` — los 3 casos usados el día 1 quedan bloqueados y el día 2 solo reparte los 3 restantes.
+- **`eventDay === 2` → segundo click de "Reiniciar" (cierre del día 2 / fin del evento)**: borra `teams` y `scores`, y resetea `gameState` completo (`resetFullEvent`): `availableCases: [1..6]`, `rankingsUnlocked: false`, `eventDay: 1`. Vuelve al estado inicial para un evento futuro.
+
+`RankingFinal.jsx` muestra el spinner de espera (igual al de RankingEspera) mientras el día actual tenga menos de 3 equipos con `status: 'completed'` — esto se resuelve solo tras cada reset porque `teams` queda vacío. El botón pide confirmación (`window.confirm`) antes de borrar, con un mensaje distinto según `eventDay`.
 
 ### Timer
 `readingStartedAt` se guarda en Firestore al presionar "Iniciar Misión Ahora". El frontend calcula tiempo restante desde ese timestamp — no desde estado local. Al llegar a 0 → pantalla TIEMPO CUMPLIDO (pantallas anteriores quedan bloqueadas). Sin timer de 15 minutos — el facilitador controla el flujo presionando "Acceso facilitador".
@@ -194,7 +205,7 @@ Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde 
 - ✅ Ranking accesible por URL directa `/ranking` (para revisión días posteriores)
 - ✅ Criterio 8 va como placeholder editable (`criteria8`) en Calificación Parte 1, no se muestra en la pantalla de Criterios (pública) hasta tener el texto real
 - ✅ Sección "Beneficio para la rentabilidad y protección del negocio" tiene su propia pantalla (`/beneficio`), entre Puntos Obligatorios y Cierre Sugerido
-- ⏳ Botón "Reiniciar" de Ranking Final: implementado sin acción por ahora, comportamiento por definir con el cliente
+- ✅ Botón "Reiniciar" de Ranking Final: cierra el día actual del evento (ver "Evento de 2 días" arriba) — 1er click pasa de día 1 a día 2 conservando los business cases usados como bloqueados, 2do click resetea todo el evento
 - ✅ Misma URL para los 3 equipos — el registro los diferencia
 - ✅ CSS Modules en vez de Tailwind
 
@@ -204,4 +215,4 @@ Usar `getBusinessCaseById(id)` para resolver el caso asignado a un equipo desde 
 - [ ] Assets de marca: logo OnStar, colores — se recibieron wireframes de alta fidelidad (`WireOnstarNegocios_OK.pdf`); paleta de `variables.css` está aproximada a partir de esas capturas, faltan hex exactos y logo vectorial
 - [x] Tipografía oficial — recibida (Chevy Sans Black, Chevy Sans Narrow ExtraBold, Onest) y cargada como `@font-face` en `src/styles/fonts.css`, expuesta vía `--font-family`, `--font-family-heading`, `--font-family-heading-narrow` en `variables.css`
 - [x] Confirmar tamaño de tablet: ¿7 o 10 pulgadas? — Confirmado: 10 pulgadas, Samsung Galaxy Tab, 800x1280px, modo portrait
-- [ ] Definir qué debe hacer el botón "Reiniciar" en la pantalla de Ranking Final (nuevo en el wireframe, no estaba en el plan original) — por ahora se implementará sin acción
+- [x] Definir qué debe hacer el botón "Reiniciar" en la pantalla de Ranking Final — resuelto: evento pasó a ser de 2 días, el botón cierra el día actual (ver "Evento de 2 días")

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, onSnapshot, runTransaction, serverTimestamp, updateDoc } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, runTransaction, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { db } from './config'
 import { getGameStateRef } from './gameState'
 
@@ -78,4 +78,10 @@ export function subscribeTeams(callback) {
   return onSnapshot(teamsCollection, (snapshot) => {
     callback(snapshot.docs.map((teamDoc) => ({ id: teamDoc.id, ...teamDoc.data() })))
   })
+}
+
+// Usado por el botón "Reiniciar" de RankingFinal al cerrar un día del evento.
+export async function deleteAllTeams() {
+  const snapshot = await getDocs(teamsCollection)
+  await Promise.all(snapshot.docs.map((teamDoc) => deleteDoc(teamDoc.ref)))
 }

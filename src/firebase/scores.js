@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, setDoc } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
 import { db } from './config'
 import { getGameStateRef } from './gameState'
 import { getAllTeams, setTeamStatus } from './teams'
@@ -43,4 +43,10 @@ export async function getRanking() {
   )
 
   return ranking.sort((a, b) => b.total - a.total)
+}
+
+// Usado por el botón "Reiniciar" de RankingFinal al cerrar un día del evento.
+export async function deleteAllScores() {
+  const snapshot = await getDocs(scoresCollection)
+  await Promise.all(snapshot.docs.map((scoreDoc) => deleteDoc(scoreDoc.ref)))
 }
