@@ -72,7 +72,7 @@ function RankingFinal() {
           <span className={styles.percent}>{percent}%</span>
         </div>
 
-        {justReset && <Button onClick={() => navigate('/')}>Ir al inicio</Button>}
+        {(justReset || percent === 0) && <Button onClick={() => navigate('/')}>Ir al inicio</Button>}
       </section>
     )
   }
