@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getRanking } from '../../firebase/scores'
-import { subscribeTeams } from '../../firebase/teams'
+import { useNavigate } from 'react-router-dom'
+import { deleteAllScores, getRanking } from '../../firebase/scores'
+import { deleteAllTeams, subscribeTeams } from '../../firebase/teams'
+import { resetFullEvent, startNextEventDay, subscribeGameState } from '../../firebase/gameState'
 import Button from '../Button/Button'
 import styles from './RankingFinal.module.css'
 import logo from '../../assets/images/logo-onStar.png'
@@ -10,9 +12,18 @@ import logo from '../../assets/images/logo-onStar.png'
 // spinner en vez de un ranking incompleto.
 const MIN_COMPLETED_TEAMS = 3
 
+const RESET_CONFIRM_MESSAGE = {
+  1: 'Esto borra los equipos y puntajes del día 1 y deja el ranking listo para el día 2. Los business cases ya usados quedan bloqueados. ¿Continuar?',
+  2: 'Esto borra todos los equipos y puntajes, y libera los 6 business cases para un nuevo evento. ¿Continuar?',
+}
+
 function RankingFinal() {
+  const navigate = useNavigate()
   const [completedCount, setCompletedCount] = useState(0)
   const [ranking, setRanking] = useState(null)
+  const [eventDay, setEventDay] = useState(1)
+  const [resetting, setResetting] = useState(false)
+  const [justReset, setJustReset] = useState(false)
 
   useEffect(() => {
     return subscribeTeams((teams) => {
@@ -21,9 +32,29 @@ function RankingFinal() {
   }, [])
 
   useEffect(() => {
+    return subscribeGameState((gameState) => {
+      setEventDay(gameState.eventDay ?? 1)
+    })
+  }, [])
+
+  useEffect(() => {
     if (completedCount < MIN_COMPLETED_TEAMS) return
     getRanking().then(setRanking)
   }, [completedCount])
+
+  async function handleReset() {
+    if (!window.confirm(RESET_CONFIRM_MESSAGE[eventDay] ?? RESET_CONFIRM_MESSAGE[2])) return
+
+    setResetting(true)
+    try {
+      await Promise.all([deleteAllTeams(), deleteAllScores()])
+      await (eventDay === 1 ? startNextEventDay() : resetFullEvent())
+      setRanking(null)
+      setJustReset(true)
+    } finally {
+      setResetting(false)
+    }
+  }
 
   if (completedCount < MIN_COMPLETED_TEAMS || !ranking) {
     const percent = Math.min(100, Math.round((completedCount / MIN_COMPLETED_TEAMS) * 100))
@@ -40,6 +71,8 @@ function RankingFinal() {
         <div className={styles.spinner} role="status" aria-label="Cargando">
           <span className={styles.percent}>{percent}%</span>
         </div>
+
+        {justReset && <Button onClick={() => navigate('/')}>Ir al inicio</Button>}
       </section>
     )
   }
@@ -63,8 +96,9 @@ function RankingFinal() {
         ))}
       </ol>
 
-      {/* Comportamiento del botón "Reiniciar" por definir con el cliente — ver CLAUDE.md > Pendientes. */}
-      <Button>Reiniciar</Button>
+      <Button onClick={handleReset} disabled={resetting}>
+        {resetting ? 'Reiniciando…' : 'Reiniciar'}
+      </Button>
     </section>
   )
 }
