@@ -45,6 +45,7 @@
 .ring {
   width: 100%;
   max-width: 640px;
+  height: 700px;
   padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg);
   aspect-ratio: 1 / 1;
   display: flex;
