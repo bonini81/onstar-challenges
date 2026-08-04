@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllScores, getRanking } from '../../firebase/scores'
 import { deleteAllTeams, subscribeTeams } from '../../firebase/teams'
 import { resetFullEvent, startNextEventDay, subscribeGameState } from '../../firebase/gameState'
+import { clearStoredTeamId } from '../../utils/session'
 import Button from '../Button/Button'
 import styles from './RankingFinal.module.css'
 import logo from '../../assets/images/logo-onStar.png'
@@ -13,8 +14,8 @@ import logo from '../../assets/images/logo-onStar.png'
 const MIN_COMPLETED_TEAMS = 3
 
 const RESET_CONFIRM_MESSAGE = {
-  1: 'Esto borra los equipos y puntajes del día 1 y deja el ranking listo para el día 2. Los business cases ya usados quedan bloqueados. ¿Continuar?',
-  2: 'Esto borra todos los equipos y puntajes, y libera los 6 business cases para un nuevo evento. ¿Continuar?',
+  1: 'Esto borra los equipos y puntajes de esta sesión y deja el ranking listo para la siguiente sesión. Los business cases ya usados quedan bloqueados. ¿Continuar?',
+  2: 'Esto borra todos los equipos y puntajes, y libera los 6 business cases para una nueva sesión. ¿Continuar?',
 }
 
 function RankingFinal() {
@@ -24,6 +25,13 @@ function RankingFinal() {
   const [eventDay, setEventDay] = useState(1)
   const [resetting, setResetting] = useState(false)
   const [justReset, setJustReset] = useState(false)
+
+  // Limpia la sesión guardada en esta tablet al llegar a Ranking: evita que,
+  // si el facilitador olvida presionar "Reiniciar", la tablet redirija
+  // automáticamente al equipo siguiente hacia los datos del equipo anterior.
+  useEffect(() => {
+    clearStoredTeamId()
+  }, [])
 
   useEffect(() => {
     return subscribeTeams((teams) => {
